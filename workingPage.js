@@ -5,4 +5,9 @@ const time = document.getElementById('times'),
     focus = document.getElementById('focus');
 
 //Array(s)
-
+const backgrounds = [
+    "",
+    "",
+    "",
+    ""
+]
