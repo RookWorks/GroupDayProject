@@ -21,7 +21,7 @@ function getFocus() {
     } else {
         focus.textContent =localStorage.getItem('focus');
     }
-}
+};
 
 // Set Focus
 function setFocus(e) {
@@ -33,7 +33,7 @@ function setFocus(e) {
         } else {
             localStorage.setItem('focus', e.target.innerText);
     }
-}
+};
 
 // Get Name
 function getName() {
@@ -42,7 +42,7 @@ function getName() {
     } else {
         name.textContent = localStorage.getItem('name');
     }
-}
+};
 
 // Set Name
 function setName(e) {
@@ -54,13 +54,10 @@ function setName(e) {
             localStorage.setItem('name', e.target.innerText);
         }
     }
-}
+};
 
 
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
-
-
-
