@@ -1,3 +1,4 @@
+
 //Options
 const showAmPm = true;
 //show time
@@ -21,6 +22,44 @@ function showTime() {
 function addZero(n) {
   return (parseInt(n, 10) < 10 ? "0" : "") + n;
 }
+=======
+//DOM Elements
+const time = document.getElementById('times'),
+    greeting = document.getElementById('greeting'),
+    name = document.getElementById ('name'),
+    focus = document.getElementById('focus');
+
+//Array(s)
+// const backgrounds = {
+//     [],
+//     [],
+//     [],
+//     []
+// };
+
+//This is a test merge
+
+// Get Focus
+function getFocus() {
+    if (localStorage.getItem('focus') === null) {
+        focus.textContent = '[Enter Focus]';
+    } else {
+        focus.textContent =localStorage.getItem('focus');
+    }
+};
+
+// Set Focus
+function setFocus(e) {
+    if (e.type === 'keypress') {
+        // Make sure enter key is pressed
+        if (e.which == 13 || e.keycode == 13) {
+            localStorage.setItem('focus', e.target.innerText);
+            focus.blur();
+        } else {
+            localStorage.setItem('focus', e.target.innerText);
+    }
+};
+
 
 // set background and greeting
 function setBgGreet() {
@@ -38,6 +77,7 @@ function setBgGreet() {
     } else {
       document.body.style.backgroundImage = fallImgs.morning;
     }
+
     greeting.textContent = "Good Morning";
   } else if (hour < 18) {
     //afternoon season backgrounds
@@ -66,6 +106,21 @@ function setBgGreet() {
     document.body.style.color = "white";
   }
 }
+=======
+};
+
+// Set Name
+function setName(e) {
+    if (e.type === 'keypress') {
+        if (e.which == 13 || e.keycode == 13) {
+            localStorage.setItem('name', e.target.innerText);
+            name.blur();
+        } else {
+            localStorage.setItem('name', e.target.innerText);
+        }
+    }
+};
+
 
 winterImgs = {
   morning:
@@ -75,6 +130,7 @@ winterImgs = {
   evening:
     "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d2ludGVyJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60",
 };
+
 
 summerImgs = {
   morning:
@@ -101,3 +157,9 @@ springImgs = {
   evening:
     "https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60",
 };
+=======
+name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
+focus.addEventListener('keypress', setFocus);
+focus.addEventListener('blur', setFocus);
+
