@@ -22,7 +22,7 @@ function showTime() {
 function addZero(n) {
   return (parseInt(n, 10) < 10 ? "0" : "") + n;
 }
-=======
+
 //DOM Elements
 const time = document.getElementById('times'),
     greeting = document.getElementById('greeting'),
@@ -106,7 +106,7 @@ function setBgGreet() {
     document.body.style.color = "white";
   }
 }
-=======
+
 };
 
 // Set Name
@@ -157,7 +157,7 @@ springImgs = {
   evening:
     "https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60",
 };
-=======
+
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
 focus.addEventListener('keypress', setFocus);
