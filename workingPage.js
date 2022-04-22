@@ -1,3 +1,10 @@
+//DOM Elements
+const time = document.getElementById('time'),
+    greeting = document.getElementById('greeting'),
+    name = document.getElementById ('name'),
+    focus = document.getElementById('focus');
+
+
 
 //Options
 const showAmPm = true;
@@ -23,11 +30,6 @@ function addZero(n) {
   return (parseInt(n, 10) < 10 ? "0" : "") + n;
 }
 
-//DOM Elements
-const time = document.getElementById('times'),
-    greeting = document.getElementById('greeting'),
-    name = document.getElementById ('name'),
-    focus = document.getElementById('focus');
 
 //Array(s)
 // const backgrounds = {
