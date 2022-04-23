@@ -8,22 +8,25 @@ const time = document.getElementById('time'),
 
 //Options
 const showAmPm = true;
+
 //show time
 function showTime() {
   let today = new Date(),
     hour = today.getHours(),
     min = today.getMinutes(),
     sec = today.getSeconds();
-  //set AM or PM
-  const amPm = hour >= 12 ? "PM" : "AM";
-  //12hr format
-  hour = hour % 12 || 12;
-  //output time
-  time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
-    sec
-  )} ${showAmPm ? amPm : ""}`;
+    //set AM or PM
+    const amPm = hour >= 12 ? "PM" : "AM";
+    
+    //12hr format
+    hour = hour % 12 || 12;
+    
+    //output time
+    time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)} ${showAmPm ? amPm : ""}`;
+
   setTimeout(showTime, 1000);
 }
+showTime();
 
 //add zeros
 function addZero(n) {
@@ -111,10 +114,19 @@ function setBgGreet() {
 
 };
 
+function getName() {
+  if (localStorage.getItem('name') === null) {
+    name.textContent = '[Enter Name]';
+} else {
+  name.textContent = localStorage.getItem('name');
+}
+};
+getName();
+
 // Set Name
 function setName(e) {
     if (e.type === 'keypress') {
-        if (e.which == 13 || e.keycode == 13) {
+        if (e.which == 13 || e.keyCode == 13) {
             localStorage.setItem('name', e.target.innerText);
             name.blur();
         } else {
