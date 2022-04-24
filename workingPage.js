@@ -1,8 +1,9 @@
 //DOM Elements
 const time = document.getElementById('time'),
     greeting = document.getElementById('greeting'),
-    name = document.getElementById ('name'),
+    userName = document.getElementById ('name'),
     focus = document.getElementById('focus');
+    todaysDate = document.getElementById('date');
 
 
 
@@ -26,7 +27,18 @@ function showTime() {
 
   setTimeout(showTime, 1000);
 }
-showTime();
+
+function showDate() {
+  let currentDate = new Date();
+
+  let month = currentDate.getMonth() +1;
+  let date = currentDate.getDate();
+  let year = currentDate.getFullYear();
+  
+  const monthName = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"];
+
+todaysDate.innerHTML = `${monthName[currentDate.getMonth()]} ${date}, ${year}`
+};
 
 //add zeros
 function addZero(n) {
@@ -46,9 +58,9 @@ function addZero(n) {
 
 function getName() {
   if (localStorage.getItem('name') === null) {
-    name.textContent = '[Enter Name]';
+    userName.textContent ='[Enter Name]';
   } else {
-  name.textContent = localStorage.getItem('name');
+  userName.textContent = localStorage.getItem('name');
 }
 };
 
@@ -57,7 +69,7 @@ function setName(e) {
     if (e.type === 'keypress') {
         if (e.which == 13 || e.keyCode == 13) {
             localStorage.setItem('name', e.target.innerText);
-            name.blur();
+            userName.blur();
         } else {
             localStorage.setItem('name', e.target.innerText);
         }
@@ -94,7 +106,7 @@ function setBgGreet() {
   if (hour < 12) {
     //season morning backgrounds
     if ((month = "December" || "January" || "February")) {
-      document.body.style.backgroundImage = winterImgs.morning;
+      document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1562553086-f6f7cbd4b4fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fHN1bW1lciUyMG1vcm5pbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60')";
     } else if ((month = "March" || "April" || "May")) {
       document.body.style.backgroundImage = springImgs.morning;
     } else if ((month = "June" || "July" || "August")) {
@@ -171,8 +183,13 @@ springImgs = {
     "https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60",
 };
 
-name.addEventListener('keypress', setName);
-name.addEventListener('blur', setName);
+userName.addEventListener('keypress', setName);
+userName.addEventListener('blur', setName);
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
 
+
+showTime();
+showDate();
+getName();
+getFocus();
