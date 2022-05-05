@@ -2,9 +2,9 @@
 const time = document.getElementById('time'),
     greeting = document.getElementById('greeting'),
     userName = document.getElementById ('name'),
-    focus = document.getElementById('focus');
+    focus = document.getElementById('focus'),
     todaysDate = document.getElementById('date');
-
+ 
 
 
 //Options
@@ -47,7 +47,7 @@ function addZero(n) {
 
 winterImgs = {
   morning:
-    "https://media.istockphoto.com/photos/winter-daybreak-scenery-of-harunire-tree-at-toyokoro-town-in-hokkaido-picture-id1327439171?b=1&k=20&m=1327439171&s=170667a&w=0&h=0A0O456Fzna0TN-k38I7lruxugmNfB3UZycgD4rEKos=",
+    'https://media.istockphoto.com/photos/winter-daybreak-scenery-of-harunire-tree-at-toyokoro-town-in-hokkaido-picture-id1327439171?b=1&k=20&m=1327439171&s=170667a&w=0&h=0A0O456Fzna0TN-k38I7lruxugmNfB3UZycgD4rEKos=',
   afternoon:
     "https://images.unsplash.com/photo-1581196607303-95c00f31c676?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2ludGVyJTIwbW9ybmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1920&q=60",
   evening:
@@ -80,51 +80,75 @@ springImgs = {
   evening:
     "https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60",
 }
-
+  // document.body.style.backgroundImage = 'url("https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d2ludGVyJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60")';
 // set background and greeting
 function showBackground() {
   let today = new Date(),
     month = today.getMonth() + 1;
-    hour = today.getHours();
-  if (hour < 12) {
-    //season morning backgrounds
-    if ((month = 12 || 1 || 2)) {
-      document.body.style.backgroundImage = winterImgs.morning;
-    } else if ((month = 3 || 4 || 5)) {
-      document.body.style.backgroundImage = springImgs.morning;
-    } else if ((month = 6 || 7 || 8)) {
-      document.body.style.backgroundImage = summerImgs.morning;
-    } else {
-      document.body.style.backgroundImage = fallImgs.morning;
+    hour = 4;
+    //today.getHours();
+    if (hour >=0 && hour < 12) {
+      if (month === 1 || month === 2 || month === 3 ){
+        document.body.style.backgroundImage = `url('${winterImgs.morning}')`;
+        document.body.style.color ="white";
+      } else if (month === 4 || month === 5 || month === 6){
+        document.body.style.backgroundImage = `url('${springImgs.morning}')`;
+        document.body.style.color ="black";
+      }else if (month === 7 || month === 8 || month === 9){
+        document.body.style.backgroundImage = `url('${fallImgs.morning}')`;
+        document.body.style.color ="white";
+      }else if (month === 10 || month === 11 || month === 12){
+        document.body.style.backgroundImage = `url('${winterImgs.morning}')`;
+        document.body.style.color ="white";
+      }
+      greeting.textContent = "Good Morning,";
     }
+//   if (hour >= 0 && hour<12) {
+//     //season morning backgrounds
+//     if (month == 12 || 1 || 2) {
+//       document.body.style.backgroundImage = `"url('${winterImgs.morning}')"`;
+//     } else if (month == 3 || 4 || 5) {
+//       document.body.style.backgroundImage = springImgs.morning;
+//     } else if (month == 6 || 7 || 8) {
+//       document.body.style.backgroundImage = summerImgs.morning;
+//     } else {
+//       document.body.style.backgroundImage = fallImgs.morning;
+//     }
 
-    greeting.textContent = "Good Morning,";
-  } else if (hour < 18) {
-    //afternoon season backgrounds
-    if ((month = 12 || 1 || 2)) {
-      document.body.style.backgroundImage = winterImgs.afternoon;
-    } else if ((month = 3 || 4 || 5)) {
-      document.body.style.backgroundImage = springImgs.afternoon;
-    } else if ((month = 6 || 7 || 8)) {
-      document.body.style.backgroundImage = summerImgs.afternoon;
-    } else {
-      document.body.style.backgroundImage = fallImgs.afternoon;
-    }
-    greeting.textContent = "Good Afternoon,";
-  } else {
-    //evening season backgrouds
-    if ((month = 12 || 1 || 2)) {
-      document.body.style.backgroundImage = winterImgs.evening;
-    } else if ((month === 3 || 4 || 5)) {
-      document.body.style.backgroundImage = springImgs.afternoon;
-    } else if ((month == 6 || 7 || 8)) {
-      document.body.style.backgroundImage = summerImgs.evening;
-    } else {
-      document.body.style.backgroundImage = fallImgs.evening;
-    }
-    greeting.textContent = "Good Evening,";
-    document.body.style.color = "black";
-  }
+//     greeting.textContent = "Good Morning,";
+//   } else if (hour >=12 && hour < 20) {
+//     //afternoon season backgrounds
+//     if (month == 12 || 1 || 2) {
+//       document.body.style.backgroundImage = winterImgs.afternoon;
+//     } else if (month == 3 || 4 || 5) {
+//       document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60')";
+//       console.log("pRINT");
+//     } else if (month == 6 || 7 || 8) {
+//       document.body.style.backgroundImage = summerImgs.afternoon;
+//     } else {
+//       document.body.style.backgroundImage = fallImgs.afternoon;
+//     }
+//     greeting.textContent = "Good Afternoon,";
+//   } else {
+//     //evening season backgrouds
+//     if (month == 12 || 1 || 2) {
+//       document.body.style.backgroundImage = winterImgs.evening;
+//     } else if (month == 3 || 4 || 5) {
+//       document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60')";
+      
+//       // `"url('${springImgs.evening}')"`;
+//       console.log("this works");
+  
+//     } 
+//     else if ((month == 6 || 7 || 8)) {
+//       document.body.style.backgroundImage = summerImgs.evening;
+//     } else {
+//       document.body.style.backgroundImage = fallImgs.evening;
+//     }
+//     greeting.textContent = "Good Evening,";
+//     document.body.style.color = "black";
+//   }
+//   console.log(month, hour);
 };
 
 function getName() {
