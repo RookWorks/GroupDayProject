@@ -5,6 +5,7 @@
 }
 
 body {
+    /* background-image: url("https://images.unsplash.com/photo-1521624213010-9fb0f30dcd20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3ByaW5nJTIwbW9ybmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1920&q=60"); */
     font-family: 'Quicksand', sans-serif;
     display: flex;
     flex-direction: column;
@@ -17,6 +18,7 @@ body {
 
 #time {
     font-size: 8rem;
+    margin-bottom: 50px;
 }
 
 h1 {
@@ -27,7 +29,10 @@ h2 {
     margin-bottom: 0.5rem;
     opacity: 0.6;
 }
-
+#date{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
 @media (max-width: 700px) {
     #time {
         font-size: 6rem;
