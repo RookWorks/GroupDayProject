@@ -84,10 +84,8 @@ springImgs = {
 // set background and greeting
 function showBackground() {
   let today = new Date(),
-    month = 7;
-    // today.getMonth() + 1;
-    hour = 16;
-    //today.getHours();
+    month = today.getMonth() + 1;
+    hour = today.getHours();
     if (hour >=0 && hour < 12) {
       if (month === 12 || month === 1 || month === 2){
         document.body.style.backgroundImage = `url('${winterImgs.morning}')`;
@@ -109,62 +107,31 @@ function showBackground() {
         document.body.style.color ="white";
       }else if(month === 3 || month === 4 || month === 5){
         document.body.style.backgroundImage = `url('${springImgs.afternoon}')`;
-        document.body.style.color ="white";
+        document.body.style.color ="purple";
       }else if(month === 6 || month === 7|| month === 8){
-        document.body.style.backgroundImage = `url('${fallImgs.afternoon}')`;
-        document.body.style.color ="white";
+        document.body.style.backgroundImage = `url('${summerImgs.afternoon}')`;
+        document.body.style.color ="yellow";
       }else if (month === 9 || month === 10 || month === 11){
         document.body.style.backgroundImage = `url('${fallImgs.afternoon}')`;
         document.body.style.color ="white";
       }
       greeting.textContent = "Good Afternoon,";
-    }
-//   if (hour >= 0 && hour<12) {
-//     //season morning backgrounds
-//     if (month == 12 || 1 || 2) {
-//       document.body.style.backgroundImage = `"url('${winterImgs.morning}')"`;
-//     } else if (month == 3 || 4 || 5) {
-//       document.body.style.backgroundImage = springImgs.morning;
-//     } else if (month == 6 || 7 || 8) {
-//       document.body.style.backgroundImage = summerImgs.morning;
-//     } else {
-//       document.body.style.backgroundImage = fallImgs.morning;
-//     }
-
-//     greeting.textContent = "Good Morning,";
-//   } else if (hour >=12 && hour < 20) {
-//     //afternoon season backgrounds
-//     if (month == 12 || 1 || 2) {
-//       document.body.style.backgroundImage = winterImgs.afternoon;
-//     } else if (month == 3 || 4 || 5) {
-//       document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60')";
-//       console.log("pRINT");
-//     } else if (month == 6 || 7 || 8) {
-//       document.body.style.backgroundImage = summerImgs.afternoon;
-//     } else {
-//       document.body.style.backgroundImage = fallImgs.afternoon;
-//     }
-//     greeting.textContent = "Good Afternoon,";
-//   } else {
-//     //evening season backgrouds
-//     if (month == 12 || 1 || 2) {
-//       document.body.style.backgroundImage = winterImgs.evening;
-//     } else if (month == 3 || 4 || 5) {
-//       document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1554256273-6ff4f08eb11e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3ByaW5nJTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=1920&q=60')";
-      
-//       // `"url('${springImgs.evening}')"`;
-//       console.log("this works");
-  
-//     } 
-//     else if ((month == 6 || 7 || 8)) {
-//       document.body.style.backgroundImage = summerImgs.evening;
-//     } else {
-//       document.body.style.backgroundImage = fallImgs.evening;
-//     }
-//     greeting.textContent = "Good Evening,";
-//     document.body.style.color = "black";
-//   }
-//   console.log(month, hour);
+    }if (hour >= 19 && 23 >= hour){
+      if (month === 12 || month === 1 || month === 2){
+        document.body.style.backgroundImage = `url('${winterImgs.evening}')`;
+        document.body.style.color ="white";
+      }else if(month === 3 || month === 4 || month === 5){
+        document.body.style.backgroundImage = `url('${springImgs.evening}')`;
+        document.body.style.color ="white";
+      }else if(month === 6 || month === 7|| month === 8){
+        document.body.style.backgroundImage = `url('${summerImgs.evening}')`;
+        document.body.style.color ="white";
+      }else if (month === 9 || month === 10 || month === 11){
+        document.body.style.backgroundImage = `url('${fallImgs.evening}')`;
+        document.body.style.color ="white";
+      }
+      greeting.textContent = "Good Evening,";
+}
 };
 
 function getName() {
