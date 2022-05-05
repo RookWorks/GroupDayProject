@@ -84,24 +84,40 @@ springImgs = {
 // set background and greeting
 function showBackground() {
   let today = new Date(),
-    month = today.getMonth() + 1;
-    hour = 4;
+    month = 7;
+    // today.getMonth() + 1;
+    hour = 16;
     //today.getHours();
     if (hour >=0 && hour < 12) {
-      if (month === 1 || month === 2 || month === 3 ){
+      if (month === 12 || month === 1 || month === 2){
         document.body.style.backgroundImage = `url('${winterImgs.morning}')`;
         document.body.style.color ="white";
-      } else if (month === 4 || month === 5 || month === 6){
+      } else if (month === 3 || month === 4 || month === 5){
         document.body.style.backgroundImage = `url('${springImgs.morning}')`;
         document.body.style.color ="black";
-      }else if (month === 7 || month === 8 || month === 9){
+      }else if (month === 6 || month === 7 || month === 8){
+        document.body.style.backgroundImage = `url('${summerImgs.morning}')`;
+        document.body.style.color ="black";
+      }else if (month === 9 || month === 10 || month === 11){
         document.body.style.backgroundImage = `url('${fallImgs.morning}')`;
-        document.body.style.color ="white";
-      }else if (month === 10 || month === 11 || month === 12){
-        document.body.style.backgroundImage = `url('${winterImgs.morning}')`;
         document.body.style.color ="white";
       }
       greeting.textContent = "Good Morning,";
+    }if (hour >= 12 && hour < 19){
+      if (month === 12 || month === 1 || month === 2){
+        document.body.style.backgroundImage = `url('${winterImgs.afternoon}')`;
+        document.body.style.color ="white";
+      }else if(month === 3 || month === 4 || month === 5){
+        document.body.style.backgroundImage = `url('${springImgs.afternoon}')`;
+        document.body.style.color ="white";
+      }else if(month === 6 || month === 7|| month === 8){
+        document.body.style.backgroundImage = `url('${fallImgs.afternoon}')`;
+        document.body.style.color ="white";
+      }else if (month === 9 || month === 10 || month === 11){
+        document.body.style.backgroundImage = `url('${fallImgs.afternoon}')`;
+        document.body.style.color ="white";
+      }
+      greeting.textContent = "Good Afternoon,";
     }
 //   if (hour >= 0 && hour<12) {
 //     //season morning backgrounds
